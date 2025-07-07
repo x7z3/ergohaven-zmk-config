@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &mt {
     quick-tap-ms = <200>;
@@ -37,6 +38,91 @@
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32>;
             hold-trigger-on-release;
         };
+
+        next_prev: next_prev {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NEXT_PREV";
+            #binding-cells = <0>;
+            bindings = <&kp C_NEXT>, <&kp C_PREV>;
+
+            tapping-term-ms = <230>;
+        };
+
+        pp_next_prev: pp_next_prev {
+            compatible = "zmk,behavior-hold-tap";
+            label = "PP_NEXT_PREV";
+            bindings = <&kp>, <&next_prev>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+        };
+
+        vol_up_down: vol_up_down {
+            compatible = "zmk,behavior-tap-dance";
+            label = "VOL_UP_DOWN";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOLUME_UP>, <&kp C_VOLUME_DOWN>;
+
+            tapping-term-ms = <280>;
+        };
+
+        mute_vol_up_down: mute_vol_up_down {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MUTE_VOL_UP_DOWN";
+            bindings = <&kp>, <&vol_up_down>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+        };
+
+        hold_tap: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+        };
+
+        out_bt_usb: out_bt_usb {
+            compatible = "zmk,behavior-tap-dance";
+            label = "OUT_BT_USB";
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            bindings = <&out OUT_BLE>, <&out OUT_USB>;
+        };
+
+        bt_select: bt_select {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_SELECT";
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            bindings =
+                <&bt BT_SEL 0>,
+                <&bt BT_SEL 1>,
+                <&bt BT_SEL 2>,
+                <&bt BT_SEL 3>;
+        };
+
+        bt_clear: bt_clear {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_CLEAR";
+            bindings = <&bt>, <&bt>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+        };
+
+        alt_gui_space: alt_gui_space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ALT_GUI_SPACE";
+            #binding-cells = <0>;
+            bindings = <&kp LA(SPACE)>, <&kp LG(SPACE)>;
+
+            tapping-term-ms = <280>;
+        };
     };
 
     combos {
@@ -58,37 +144,37 @@
 
         base {
             bindings = <
-  &kp Q        &kp W        &kp E         &kp R          &kp T                          &kp Y  &kp U         &kp I         &kp O        &kp P
-  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F   &kp G                          &kp H  &hmr RCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr RGUI SEMICOLON
-  &kp Z        &kp X        &kp C         &kp V          &kp B                          &kp N  &kp M         &kp COMMA     &kp DOT      &kp SQT
-                                          &kp BACKSPACE  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp TAB
+  &kp Q               &kp W  &kp E  &kp R             &kp T                          &kp Y  &kp U     &kp I      &kp O    &kp P
+  &kp A               &kp S  &kp D  &kp D             &kp G                          &kp H  &kp J     &kp K      &kp L    &kp SEMI
+  &hold_tap LSHIFT Z  &kp X  &kp C  &kp V             &kp B                          &kp N  &kp M     &kp COMMA  &kp DOT  &hold_tap RSHIFT FSLH
+                                    &kp LEFT_CONTROL  &mo 3  &kp SPACE    &kp SPACE  &mo 3  &kp RCMD
             >;
         };
 
-        nav {
+        control {
             bindings = <
-  &kp N1         &kp N2    &kp N3     &kp N4     &kp N5                        &kp N6           &kp N7           &kp N8           &kp N9        &kp N0
-  &hml LGUI ESC  &kp LALT  &kp LSHFT  &kp LCTRL  &kp ENTER                     &kp PRINTSCREEN  &hmr RCTRL LEFT  &hmr RSHFT DOWN  &hmr LALT UP  &hmr RGUI RIGHT
-  &none          &kp HOME  &kp INS    &kp END    &kp DELETE                    &kp CAPS         &none            &kp PG_DN        &kp PG_UP     &none
-                                      &trans     &trans      &trans    &trans  &mo 3            &trans
+  &kp ESC       &kp GRAVE         &kp END     &kp HOME      &kp TAB                                &kp PAGE_DOWN         &kp PG_UP                   &kp INSERT  &kp ENTER  &kp BACKSPACE
+  &kt LEFT_ALT  &kp LEFT_CONTROL  &kp DELETE  &kp LEFT_WIN  &kp KP_PLUS                            &kp LEFT              &kp DOWN                    &kp UP      &kp RIGHT  &kp SQT
+  &trans        &trans            &trans      &trans        &trans                                 &pp_next_prev C_PP 0  &mute_vol_up_down C_MUTE 0  &trans      &trans     &trans
+                                              &trans        &trans       &trans    &alt_gui_space  &mo 3                 &trans
             >;
         };
 
-        sym {
+        symbols {
             bindings = <
-  &none           &kp LT          &kp EQUAL         &kp GT           &kp GRAVE                    &kp CARET  &kp LBKT         &kp UNDER        &kp RBKT        &none
-  &hml LGUI BSLH  &hml LALT LPAR  &hml LSHFT MINUS  &hml LCTRL RPAR  &kp PLUS                     &kp PRCNT  &hmr RCTRL LBRC  &hmr RSHFT SEMI  &hmr LALT RBRC  &hmr RGUI EXCL
-  &kp HASH        &kp STAR        &kp COLON         &kp FSLH         &none                        &none      &kp PIPE         &kp TILDE        &kp AMPS        &kp DLLR
-                                                    &trans           &mo 3      &trans    &trans  &trans     &trans
+  &kp N1      &kp N2      &kp N3            &kp N4             &kp N5                        &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)        &kp LS(N4)         &kp LS(N5)                    &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)
+  &trans      &trans      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp MINUS                     &kp BSLH    &kp EQUAL   &trans      &trans      &trans
+                                            &trans             &mo 3       &trans    &trans  &trans      &trans
             >;
         };
 
         adj {
             bindings = <
-  &bootloader  &kp F1        &kp F2         &kp F3         &kp F4                     &bt BT_SEL 0  &bt BT_SEL 1         &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_CLR
-  &kp LGUI     &hml LALT F5  &hml LSHFT F6  &hml LCTRL F7  &kp F8                     &out OUT_BLE  &hmr RCTRL C_VOL_DN  &hmr RSHFT C_MUTE  &hmr LALT C_VOL_UP  &kp RGUI
-  &none        &kp F9        &kp F10        &kp F11        &kp F12                    &out OUT_USB  &kp C_PREV           &kp C_PP           &kp C_NEXT          &studio_unlock
-                                            &trans         &trans   &trans    &trans  &trans        &trans
+  &kp F1      &kp F2                       &kp F3     &kp F4     &kp F5                            &kp F6          &kp F7          &kp F8        &kp F9           &kp F10
+  &kp F12     &msc SCRL_UP                 &mkp RCLK  &mkp LCLK  &msc SCRL_DOWN                    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp F11
+  &bt_select  &bt_clear BT_CLR_ALL BT_CLR  &trans     &trans     &bootloader                       &trans          &out_bt_usb     &trans        &trans           &studio_unlock
+                                                      &trans     &trans          &trans    &trans  &trans          &trans
             >;
         };
     };
