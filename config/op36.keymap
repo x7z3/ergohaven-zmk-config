@@ -119,21 +119,25 @@
         o_sq_br {
             bindings = <&kp LBKT>;
             key-positions = <17 16>;
+            layers = <0>;
         };
 
         c_sq_br {
             bindings = <&kp RBKT>;
             key-positions = <17 18>;
+            layers = <0>;
         };
 
         eq {
             bindings = <&kp EQUAL>;
             key-positions = <6 7>;
+            layers = <0>;
         };
 
         mns {
             bindings = <&kp MINUS>;
             key-positions = <7 8>;
+            layers = <0>;
         };
     };
 
