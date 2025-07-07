@@ -12,6 +12,7 @@
 
 / {
     behaviors {
+
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -36,6 +37,91 @@
 
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32>;
             hold-trigger-on-release;
+        };
+
+        next_prev: next_prev {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NEXT_PREV";
+            #binding-cells = <0>;
+            bindings = <&kp C_NEXT>, <&kp C_PREV>;
+
+            tapping-term-ms = <230>;
+        };
+
+        pp_next_prev: pp_next_prev {
+            compatible = "zmk,behavior-hold-tap";
+            label = "PP_NEXT_PREV";
+            bindings = <&kp>, <&next_prev>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+        };
+
+        vol_up_down: vol_up_down {
+            compatible = "zmk,behavior-tap-dance";
+            label = "VOL_UP_DOWN";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOLUME_UP>, <&kp C_VOLUME_DOWN>;
+
+            tapping-term-ms = <280>;
+        };
+
+        mute_vol_up_down: mute_vol_up_down {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MUTE_VOL_UP_DOWN";
+            bindings = <&kp>, <&vol_up_down>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+        };
+
+        hold_tap: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+        };
+
+        out_bt_usb: out_bt_usb {
+            compatible = "zmk,behavior-tap-dance";
+            label = "OUT_BT_USB";
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            bindings = <&out OUT_BLE>, <&out OUT_USB>;
+        };
+
+        bt_select: bt_select {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_SELECT";
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            bindings =
+                <&bt BT_SEL 0>,
+                <&bt BT_SEL 1>,
+                <&bt BT_SEL 2>,
+                <&bt BT_SEL 3>;
+        };
+
+        bt_clear: bt_clear {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_CLEAR";
+            bindings = <&bt>, <&bt>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+        };
+
+        alt_gui_space: alt_gui_space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ALT_GUI_SPACE";
+            #binding-cells = <0>;
+            bindings = <&kp LA(SPACE)>, <&kp LG(SPACE)>;
+
+            tapping-term-ms = <280>;
         };
     };
 
