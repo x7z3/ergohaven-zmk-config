@@ -160,12 +160,12 @@
             >;
         };
 
-        sym {
+        symbols {
             bindings = <
-  &none           &kp LT          &kp EQUAL         &kp GT           &kp GRAVE                    &kp CARET  &kp LBKT         &kp UNDER        &kp RBKT        &none
-  &hml LGUI BSLH  &hml LALT LPAR  &hml LSHFT MINUS  &hml LCTRL RPAR  &kp PLUS                     &kp PRCNT  &hmr RCTRL LBRC  &hmr RSHFT SEMI  &hmr LALT RBRC  &hmr RGUI EXCL
-  &kp HASH        &kp STAR        &kp COLON         &kp FSLH         &none                        &none      &kp PIPE         &kp TILDE        &kp AMPS        &kp DLLR
-                                                    &trans           &mo 3      &trans    &trans  &trans     &trans
+  &kp N1      &kp N2      &kp N3            &kp N4             &kp N5                        &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)        &kp LS(N4)         &kp LS(N5)                    &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)
+  &trans      &trans      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp MINUS                     &kp BSLH    &kp EQUAL   &trans      &trans      &trans
+                                            &trans             &mo 3       &trans    &trans  &trans      &trans
             >;
         };
 
