@@ -173,7 +173,7 @@
             bindings = <
   &kp F1      &kp F2        &kp F3     &kp F4     &kp F5                            &kp F6          &kp F7          &kp F8        &kp F9           &kp F10
   &kp F12     &msc SCRL_UP  &mkp RCLK  &mkp LCLK  &msc SCRL_DOWN                    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp F11
-  &bt_select  &trans        &trans     &trans     &bootloader                       &trans          &trans          &trans        &trans           &trans
+  &bt_select  &trans        &trans     &trans     &bootloader                       &trans          &trans          &trans        &trans           &studio_unlock
                                        &trans     &trans          &trans    &trans  &trans          &trans
             >;
         };
