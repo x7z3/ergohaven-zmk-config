@@ -155,10 +155,10 @@
 
         control {
             bindings = <
-  &kp ESC       &kp GRAVE         &kp END     &kp HOME      &kp TAB                                &kp PAGE_DOWN         &kp PG_UP                   &kp INSERT  &kp ENTER  &kp BACKSPACE
-  &kt LEFT_ALT  &kp LEFT_CONTROL  &kp DELETE  &kp LEFT_WIN  &kp KP_PLUS                            &kp LEFT              &kp DOWN                    &kp UP      &kp RIGHT  &kp SQT
-  &trans        &trans            &trans      &trans        &trans                                 &pp_next_prev C_PP 0  &mute_vol_up_down C_MUTE 0  &trans      &trans     &trans
-                                              &trans        &trans       &trans    &alt_gui_space  &mo 3                 &trans
+  &kp ESC       &kp GRAVE         &kp END     &kp HOME      &kp TAB                                    &kp PAGE_DOWN         &kp PG_UP                   &kp INSERT  &kp ENTER  &kp BACKSPACE
+  &kt LEFT_ALT  &kp LEFT_CONTROL  &kp DELETE  &kp LEFT_WIN  &kp PRINTSCREEN                            &kp LEFT              &kp DOWN                    &kp UP      &kp RIGHT  &kp SQT
+  &trans        &trans            &trans      &trans        &kp PAUSE_BREAK                            &pp_next_prev C_PP 0  &mute_vol_up_down C_MUTE 0  &trans      &trans     &trans
+                                              &trans        &trans           &trans    &alt_gui_space  &mo 3                 &trans
             >;
         };
 
