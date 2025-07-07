@@ -151,12 +151,12 @@
             >;
         };
 
-        nav {
+        control {
             bindings = <
-  &kp N1         &kp N2    &kp N3     &kp N4     &kp N5                        &kp N6           &kp N7           &kp N8           &kp N9        &kp N0
-  &hml LGUI ESC  &kp LALT  &kp LSHFT  &kp LCTRL  &kp ENTER                     &kp PRINTSCREEN  &hmr RCTRL LEFT  &hmr RSHFT DOWN  &hmr LALT UP  &hmr RGUI RIGHT
-  &none          &kp HOME  &kp INS    &kp END    &kp DELETE                    &kp CAPS         &none            &kp PG_DN        &kp PG_UP     &none
-                                      &trans     &trans      &trans    &trans  &mo 3            &trans
+  &kp ESC       &kp GRAVE         &kp END     &kp HOME      &kp TAB                                &kp PAGE_DOWN         &kp PG_UP                   &kp INSERT  &kp ENTER  &kp BACKSPACE
+  &kt LEFT_ALT  &kp LEFT_CONTROL  &kp DELETE  &kp LEFT_WIN  &kp KP_PLUS                            &kp LEFT              &kp DOWN                    &kp UP      &kp RIGHT  &kp SQT
+  &trans        &trans            &trans      &trans        &trans                                 &pp_next_prev C_PP 0  &mute_vol_up_down C_MUTE 0  &trans      &trans     &trans
+                                              &trans        &trans       &trans    &alt_gui_space  &mo 3                 &trans
             >;
         };
 
