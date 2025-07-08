@@ -45,7 +45,7 @@
             #binding-cells = <0>;
             bindings = <&kp C_NEXT>, <&kp C_PREV>;
 
-            tapping-term-ms = <250>;
+            tapping-term-ms = <280>;
         };
 
         pp_next_prev: pp_next_prev {
@@ -67,7 +67,7 @@
             #binding-cells = <0>;
             bindings = <&kp C_VOLUME_UP>, <&kp C_VOLUME_DOWN>;
 
-            tapping-term-ms = <250>;
+            tapping-term-ms = <280>;
         };
 
         mute_vol_up_down: mute_vol_up_down {
@@ -87,7 +87,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "OUT_BT_USB";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <280>;
             bindings = <&out OUT_BLE>, <&out OUT_USB>;
         };
 
@@ -95,7 +95,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "BT_SELECT";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <280>;
             bindings =
                 <&bt BT_SEL 0>,
                 <&bt BT_SEL 1>,
@@ -109,7 +109,7 @@
             #binding-cells = <0>;
             bindings = <&kp LA(SPACE)>, <&kp LG(SPACE)>;
 
-            tapping-term-ms = <250>;
+            tapping-term-ms = <280>;
         };
     };
 
